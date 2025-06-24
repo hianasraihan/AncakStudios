@@ -17,7 +17,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen flex flex-col justify-center items-center text-center bg-black overflow-hidden"
+      className="
+        relative 
+        min-h-screen  /* pakai min-h-screen supaya tidak masalah di mobile */
+        flex flex-col justify-center items-center text-center 
+        bg-black overflow-hidden
+      "
     >
       {/* Video Background */}
       <video
@@ -25,14 +30,24 @@ export default function Hero() {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover brightness-50 z-0"
+        className="
+          absolute inset-0 
+          w-full h-full 
+          object-cover 
+          brightness-[0.7]  /* brightness sedikit lebih terang */
+          z-0
+        "
+        preload="auto"
       >
         <source src="/bg-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
+      {/* Fallback overlay kalau video belum ready */}
+      <div className="absolute inset-0 bg-black opacity-60 z-0" />
+
       {/* Content */}
-      <div className="z-10 px-6">
+      <div className="z-10 px-6 max-w-4xl">
         <h1 className="text-white text-3xl md:text-5xl font-semibold leading-tight md:leading-[1.2]">
           Selamat datang di <span className="text-orange-500">AncakStudios</span>,<br />
           tempat di mana setiap momen <br /> diabadikan dengan keahlian
